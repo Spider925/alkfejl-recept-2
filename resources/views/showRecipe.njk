@@ -1,0 +1,16 @@
+{% extends 'layout' %}
+
+{% block content %}
+
+<h2>{{ recipe.name }}</h2>
+<p>{{ recipe.category.name }}</p>
+<h3>ing</h3>
+<pre>
+{{ recipe.ingredients }}
+</pre>
+<h3>howtodo</h3>
+<pre>
+{{ recipe.instructions }}
+</pre>
+
+{% endblock %}
