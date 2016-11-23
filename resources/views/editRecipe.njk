@@ -1,5 +1,11 @@
 {% extends 'layout' %}
 
+{% block scripts %}
+
+<script src="/scripts/smart_ingredients.js"></script>
+
+{% endblock %}
+
 {% block content %}
 
 <h2>Recept módosítás</h2>
@@ -31,6 +37,7 @@
     <div class="form-group">
       <label for="ingredients" class="col-lg-2 control-label">Hozzávalók</label>
       <div class="col-lg-10">
+       
         <textarea class="form-control" rows="3" id="ingredients" name="ingredients">{{ recipe.ingredients }}</textarea>
       </div>
     </div>

@@ -1,5 +1,11 @@
 {% extends 'layout' %}
 
+{% block scripts %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+
+{% endblock %}
+
 {% block content %}
 
 <h2>Új recept felvitele</h2>
@@ -20,28 +26,34 @@
 {% endif %}
 
 
-<form class="form-horizontal" action="" method="post">
+<form class="form-horizontal" action="" method="post" data-toggle="validator">
     {{ csrfField }}
-  <div class="form-group">
+  <div class="form-group has-feedback">
       <label for="name" class="col-lg-2 control-label">A recept neve</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" id="name" name="name" placeholder="Recept neve"
+        <input required type="text" class="form-control" id="name" name="name" placeholder="Recept neve"
         value="{{ old('name') }}">
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group has-feedback">
       <label for="ingredients" class="col-lg-2 control-label">Hozzávalók</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="3" id="ingredients" name="ingredients">{{ old('ingredients') }}</textarea>
+        <textarea required class="form-control" rows="3" id="ingredients" name="ingredients">{{ old('ingredients') }}</textarea>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group has-feedback">
       <label for="instructions" class="col-lg-2 control-label">Leírás</label>
       <div class="col-lg-10">
-        <textarea class="form-control" rows="5" id="instructions" name="instructions">{{ old('instructions') }}</textarea>
+        <textarea required class="form-control" rows="5" id="instructions" name="instructions">{{ old('instructions') }}</textarea>
+        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+        <div class="help-block with-errors"></div>
       </div>
     </div>
-    <div class="form-group">
+    <div class="form-group has-feedback">
       <label for="category_id" class="col-lg-2 control-label">Kategória</label>
       <div class="col-lg-10">
         <select class="form-control" id="category_id" name="category_id">
