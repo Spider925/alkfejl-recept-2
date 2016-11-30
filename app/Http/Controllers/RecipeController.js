@@ -132,6 +132,18 @@ class RecipeController {
 
         response.redirect('/')
     }
+
+    * ajaxDelete (request, response) {
+        const id = request.param('id')
+        const recipe = yield Recipe.find(id)
+        if (!recipe) {
+            response.notFound('Recipe does not exists')
+            return
+        }
+        yield recipe.delete()
+
+        response.ok({success: true})
+    }
 }
 
 module.exports = RecipeController

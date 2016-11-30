@@ -23,3 +23,7 @@ Route.post('/register', 'UserController.doregister')
 
 Route.get('/login', 'UserController.login')
 Route.post('/login', 'UserController.dologin')
+
+Route.group('ajax', function () {
+  Route.delete('/recipes/:id/delete', 'RecipeController.ajaxDelete').middleware('auth')
+}).prefix('/ajax')
